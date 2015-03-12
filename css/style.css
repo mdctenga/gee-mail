@@ -1,14 +1,17 @@
 #header {
 	display: block;
-	border-radius: 5px;
-	border: solid black; 
+	/*border-radius: 5px;*/
+	border: solid black;
+	/*border-bottom: none;*/
 	height: 50px;
 	width: auto;
 	background-color: #69D2E7;
-	margin-top: -20px;
-	margin-right: -20px;
-	margin-left: -20px;
+	/*margin-top: -20px;*/
+	/*margin-right: -20px;*/
+	/*margin-left: -20px;*/
 	padding: 40px;
+	font-size: 3em;
+}
 }
 .body{	
 	margin: auto;
@@ -16,8 +19,9 @@
 .container {
 	display: inline;
 	background-color: #308014;
+	border-left: none;
 	width: 80%;
-	height: 59%;
+	height: 100%;
 	/*padding: 25px;*/
 	clear: right;
 	/*margin-right: -12px;*/
@@ -25,11 +29,30 @@
 	float: right;
 }
 #main {
+	font-size: 1em;
 
+}
+.messageRow{
+	border: 2px solid black;
+	border-top: none;
+}
+.subject {
+	font-size: 2em;
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+.sender {
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+}
+.date {
+	border-right: 2px solid black;
+	border-left: 2px solid black;
+	color: blue;
 }
 .sidebar {
 	display: inline;
-	border: 2px solid black;
+	border-right: 2px solid black;
 	background: black;
 	clear: left;
 	background-color: #308014;
@@ -39,22 +62,25 @@
 	position: relative;
 	float: left;
 	width: 20%;
-	height: 59%;
+	height: 100%;
 	box-sizing: border-box;
 }
 #footer {
-	border-radius: 5px;
+	/*border-radius: 5px;*/
 	border: solid black;
 	height: 50px;
 	width: auto;
 	background-color: #69D2E7;
-	margin-bottom: -20px;
-	margin-right: -20px;
-	margin-left: -20px;
+	/*margin-bottom: -20px;*/
+	/*margin-right: -20px;*/
+	/*margin-left: -20px;*/
 	/*padding: 40px;*/
 	clear: both;
 }
 body {
 	margin: 0;
 	padding: 0;
+}
+Message {
+	font-size: 4em;
 }

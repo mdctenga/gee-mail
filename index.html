@@ -5,23 +5,103 @@
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
-        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
-      };
+        // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser        
+     	var sidebar = document.getElementById('side');
+
+	    var inbox = document.createElement('div');
+	    inbox.className = ("inbox");
+	    inbox.innerHTML = "You have " + inboxCount() + " geemails.";
+	    sidebar.appendChild(inbox);
+	    function inboxCount(){
+	    	return window.geemails.length + displayMessage.length;
+	    }
+      	
+	    function displayMessage(msg){
+      		var container = document.getElementById('main');
+
+	        var geemailContent = document.createElement('div');
+	        geemailContent.className = ("geemailContent");
+	        container.appendChild(geemailContent);     
+	        
+	        var row = document.createElement('div');
+	        row.className = ("row");
+ 	        geemailContent.appendChild(row);
+	        
+	        var sender = document.createElement('div');
+	        sender.className = ("sender");
+	        sender.innerHTML = "From: " + msg.sender;
+	        row.appendChild(sender);
+	        
+	        var date = document.createElement('div');
+	        date.className = ("date");
+	        date.innerHTML = msg.date;
+	        row.appendChild(date);     
+	        
+	        var subject = document.createElement('div');
+	        subject.className = ("subject");
+	        subject.innerHTML = msg.subject;
+	        row.appendChild(subject);   
+	        
+	        var messageRow = document.createElement('div');
+	        messageRow.className = ("messageRow");
+	        messageRow.innerHTML = msg.body;
+	        geemailContent.appendChild(messageRow);    
+      	}
+
+      // 	$('#main').on("click",".geemailContent",function(){
+    		// $(this).children('.messageRow').slideToggle("fast");		
+      // 	});
+
+     //  	function addNewMessage(){
+    	// 	var newMessage = getNewMessage();
+    	// 	displayMessage(newMessage);
+    	// 	console.log("new message logged");
+    	// };
+
+    	for (var i = 0; i < window.geemails.length; i++) {
+        	displayMessage(window.geemails[i]);    
+      	};
+     };
+
+     
+      	
+      	
+      	
+    	
+ 	
+          
     </script>
 	</head>
 	<body>
 		<div id="header">
-			Header content
+			GeeMails
+
 		</div>
-		<div class="container" id="main">
-			Build Me!
-			
+		<div class="body">
+			<div class="container" id="main">
+				<!-- <table>
+					<thead>
+						<tbody>
+							<tr>
+								<td id="Message"> 1</td>
+								<td id="Message"> 1</td>
+								<td id="Message"> 1</td>
+							</tr>
+							<tr>
+								<td> </td>
+							</tr>
+							<tr>
+								<td> 1</td>
+							</tr>
+						</tbody>
+					</thead>
+				</table> -->
+			</div>
+			<div class="sidebar" id="side">
+			</div>
 		</div>
-		<div class="sidebar">
-			Sidebar content
-		</div>
-		<div id="footer">
+<!-- 		<div id="footer">
 			footer content
 		</div>
-	</body>
+ -->	</body>
 </html>
