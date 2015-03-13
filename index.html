@@ -6,17 +6,21 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser        
+     	
+		
      	var sidebar = document.getElementById('side');
 
 	    var inbox = document.createElement('div');
 	    inbox.className = ("inbox");
 	    inbox.innerHTML = "You have " + inboxCount() + " geemails.";
 	    sidebar.appendChild(inbox);
+	    
 	    function inboxCount(){
-	    	return window.geemails.length + displayMessage.length;
+	    	return window.geemails.length + showEmail.length;
 	    }
       	
-	    function displayMessage(msg){
+	    function showEmail(email){
+
       		var container = document.getElementById('main');
 
 	        var geemailContent = document.createElement('div');
@@ -29,37 +33,38 @@
 	        
 	        var sender = document.createElement('div');
 	        sender.className = ("sender");
-	        sender.innerHTML = "From: " + msg.sender;
+	        sender.innerHTML = "From: " + email.sender;
 	        row.appendChild(sender);
 	        
 	        var date = document.createElement('div');
 	        date.className = ("date");
-	        date.innerHTML = msg.date;
+	        date.innerHTML = email.date;
 	        row.appendChild(date);     
 	        
 	        var subject = document.createElement('div');
 	        subject.className = ("subject");
-	        subject.innerHTML = msg.subject;
+	        subject.innerHTML = email.subject;
 	        row.appendChild(subject);   
 	        
 	        var messageRow = document.createElement('div');
 	        messageRow.className = ("messageRow");
-	        messageRow.innerHTML = msg.body;
-	        geemailContent.appendChild(messageRow);    
+	        messageRow.innerHTML = email.body;
+	        geemailContent.appendChild(messageRow);   
       	}
+		
+		setInterval(
+			function addNewMessage(){
+				var newMessage = getNewMessage();
+				showEmail(newMessage);
+				console.log(newMessage);
+		}, 1000);	
 
-      // 	$('#main').on("click",".geemailContent",function(){
-    		// $(this).children('.messageRow').slideToggle("fast");		
-      // 	});
-
-     //  	function addNewMessage(){
-    	// 	var newMessage = getNewMessage();
-    	// 	displayMessage(newMessage);
-    	// 	console.log("new message logged");
-    	// };
+		main.addEventListener('click', function() {
+    		alert(body);
+		}, false);
 
     	for (var i = 0; i < window.geemails.length; i++) {
-        	displayMessage(window.geemails[i]);    
+        	showEmail(window.geemails[i]);    
       	};
      };
 
